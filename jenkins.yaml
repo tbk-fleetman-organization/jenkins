@@ -69,6 +69,8 @@ rules:
   resources: ["persistentvolumes"]
   verbs: ["create","delete","get","list","patch","update","watch"]
 ---
+#
+# Run 1 replica of that Jenkins image that we built
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -86,6 +88,9 @@ spec:
     spec:
       containers:
         - name: jenkins
+          #
+          # Keep all of the images local to the machine.
+          # 
           image: myjenkins:latest
           env:
             - name: JAVA_OPTS
