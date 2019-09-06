@@ -2,6 +2,7 @@ from jenkins/jenkins:lts-alpine
 USER root
 
 # Pipeline
+# Plugins allow us to expand Jenkins
 RUN /usr/local/bin/install-plugins.sh workflow-aggregator && \
     /usr/local/bin/install-plugins.sh github && \
     /usr/local/bin/install-plugins.sh ws-cleanup && \
